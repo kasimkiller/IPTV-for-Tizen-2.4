@@ -1,82 +1,37 @@
-# Player AVPlay
+# IPTV Player
 
-This application demonstrates the usage of `webapis.avplay` API. With this API it is possible to have a video player in application. AVPlay is alternative to HTML5 player and has many advantages over it including: wider range of codecs and formats, DRMs support, hardware acceleration.
-It is highly recommended for handling videos in SmartTV applications.
+由于国行三星电视应用商店非常垃圾，没有IPTV的应用，老款电视也不能安装安卓应用，因此参考官方avPlayer写了一个iptv程序.
+Due to the poor quality of the Samsung TV app store in China, which lacks IPTV applications, and the inability to install Android apps on older TVs, I wrote an IPTV program based on the official avPlayer.
 
+## 如何安装 How to Install the IPTV application
 
-## How to use the Player AVPlay application
+【准备工作】安装需要电视开启开发者模式，在商店界面用遥控器输入12345，打开开发者模式，提示输入ip，把IP设为你电脑的ip，重启电视。
+接下来用2中方法安装：
+(推荐)1.利用Jellyfin4Tizen安装工具（下载地址：https://github.com/jellyfin/jellyfin-tizen），不要选择任何jellyfin，在选项中设置自己的安装包（IPTV.wgt），软件会自动搜索你电视的ip，然后安装就可以了。
+2.下载Tizen Studio, 可以通过CLI版的命令行安装，也可以通过IDE版的调试模式安装。需要申请三星开发者账号，登录后才能安装，非常麻烦。具体过程可以参考：[https://github.com/jellyfin/jellyfin-tizen](https://www.bilibili.com/opus/733480835510960145)
 
-Use TV remote controller to navigate. By pressing on the buttons user can see the output from the methods of the `webapis.avplay` API.
+[Preparation] For installation, you need to enable developer mode on the TV. Enter 12345 with the remote control in the store interface to open developer mode. It will prompt you to enter the IP address. Set the IP to the IP address of your computer, and then restart the TV.
+Next, use the two methods mentioned to install:
+(Recommended) 1. Use the Jellyfin4Tizen installation tool (download link: https://github.com/jellyfin/jellyfin-tizen). Do not select any jellyfin, and set your own installation package (IPTV.wgt) in the options. The software will automatically search for your TV's IP, and then the installation will proceed.
 
+## 平台版本支持 Supported platforms
 
-## Supported platforms
+电视平台按照Tizen2.4开发，理论上2.4以上的都支持，基本上是2018年后的都支持。新款的都支持IPTV，也就不用了。
+IPTV内置的m3u8列表仅浙江移动可用，如果需要替换，请手动更改channelData.js内的内容。
 
-2015 and newer
+The TV platform is developed according to Tizen 2.4, theoretically supporting all versions above 2.4, and basically supporting all versions after 2018. The new models all support IPTV, so there's no need for it.
+The built-in m3u8 list in IPTV is only available for Zhejiang Mobile. If replacement is needed, please manually change the content in channelData.exe.
 
+## 手动更改m3u8准备工作 Prerequisites
 
-## Prerequisites
+将m3u文件打开，把内部的m3u8地址按照channelData.js内的内容格式调整。然后下载Tizen studio自己打包程序安装。
 
-To use `webapis.avplay` API, embed below script into your `index.html`:
+Open the m3u file and adjust the internal m3u8 address according to the content format in channelData.js. Then download Tizen Studio and install the self packaged program.
 
-```html
-<script src="$WEBAPIS/webapis/webapis.js"></script>
-```
+## 定制服务 Customize Service
 
-## Privileges and metadata
+如果你不会修改，也可以联系作者有偿修改。
+If you don't know how to make changes, you can also contact the author for paid modifications.
 
-In order to use `webapis.avplay` API the following privilege must be included in `config.xml`:
+Email:472157422@qq.com
 
-```xml
-<tizen:privilege name="http://developer.samsung.com/privilege/avplay" />
-```
-
-### File structure
-
-```
-PlayerAvplay/ - PlayerAvplay sample app root folder
-│
-├── assets/ - resources used by this app
-│   │
-│   ├── JosefinSans-Light.ttf - font used in application
-│   └── RobotoMono-Regular.ttf - font used in application
-│
-├── css/ - styles used in the application
-│   │
-│   ├── main.css - styles specific for the application
-│   └── style.css - style for application's template
-│
-├── js/ - scripts used in the application
-│   │
-│   ├── init.js - script that runs before any other for setup purpose
-│   ├── keyhandler.js - module responsible for handling keydown events
-│   ├── logger.js - module allowing user to register logger instances
-│   ├── main.js - main application script
-│   ├── navigation.js - module responsible for handling in-app focus and navigation
-│   ├── utils.js - module with useful tools used through application
-│   └── videoPlayer.js - module controlling AVPlay player
-│
-├── CHANGELOG.md - changes for each version of application
-├── config.xml - application's configuration file
-├── icon.png - application's icon
-├── index.html - main document
-└── README.md - this file
-```
-
-## Other resources
-
-*  **AVPlay API**  
-  https://developer.samsung.com/tv/develop/api-references/samsung-product-api-references/avplay-api
-
-* **AVPlay guide**  
-  https://developer.samsung.com/tv/develop/guides/multimedia/media-playback/using-avplay
-
-
-## Copyright and License
-
-**Copyright 2019 Samsung Electronics, Inc.**
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
