@@ -1,6 +1,7 @@
 # IPTV Player
 
 由于国行三星电视应用商店非常垃圾，没有IPTV的应用，老款电视也不能安装安卓应用，因此参考官方avPlayer写了一个iptv程序.
+
 Due to the poor quality of the Samsung TV app store in China, which lacks IPTV applications, and the inability to install Android apps on older TVs, I wrote an IPTV program based on the official avPlayer.
 
 ## 如何安装 How to Install the IPTV application
