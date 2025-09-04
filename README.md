@@ -34,4 +34,4 @@ Open the m3u file and adjust the internal m3u8 address according to the content 
 如果你不会修改，也可以联系作者有偿修改。
 If you don't know how to make changes, you can also contact the author for paid modifications.
 
-Wechat:Kasim-zy
+
